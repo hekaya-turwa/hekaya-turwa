@@ -110,7 +110,46 @@
             .poetry-header {
                 padding: 20px;
             }
-        }
+/* تحسين بطاقات ديوان الشعر */
+.poetry-library {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.poetry-library h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.empty-poetry {
+    width: 90%;
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 55px 30px;
+    text-align: center;
+    background: linear-gradient(145deg, #2b1938, #1b1024);
+    border: 1px solid rgba(201, 166, 107, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.empty-poetry h3 {
+    color: #f3dfb5;
+    font-size: 27px;
+    margin: 20px 0;
+}
+
+.empty-poetry p {
+    color: #d5c4df;
+    line-height: 2.2;
+    text-align: center;
+}
+
+.empty-poetry + .empty-poetry {
+    margin-top: 30px;
+}        }
     </style>
 </head>
 
