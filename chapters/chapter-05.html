@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرجل الذي عاد من الموت | ما لم يمت</title>
+
+    <style> 
+/* Reading Toolbar */
+.reading-tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: fit-content;
+    max-width: 92%;
+    margin: 30px auto;
+    padding: 12px 22px;
+    background: linear-gradient(145deg, #24132e, #190d22);
+    border: 1px solid #76502f;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px #0005;
+    color: #c5a46d;
+}
+
+.reading-tools span {
+    font-size: 14px;
+    color: #eadfc9;
+}
+
+.reading-tools button {
+    background: #2b1935;
+    color: #e5c58b;
+    border: 1px solid #76502f;
+    border-radius: 7px;
+    padding: 9px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.reading-tools button:hover {
+    background: #c5a46d;
+    color: #190d22;
+    border-color: #e5c58b;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .reading-tools {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .reading-tools button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #170d20;
+            color: #eadfc9;
+            font-family: serif;
+            line-height: 2.2;
+        }
+
+        .reader-header {
+            padding: 22px;
+            background: #100817;
+            border-bottom: 1px solid #c5a46d55;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reader-header a {
+            color: #c5a46d;
+            text-decoration: none;
+        }
+
+        .reader {
+            max-width: 850px;
+            margin: 65px auto;
+            padding: 35px;
+        }
+
+        .chapter-number {
+            color: #c5a46d;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #e4c58d;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .story-text {
+            font-size: 20px;
+            text-align: justify;
+            white-space: normal;
+        }
+
+        .story-text p {
+            margin-bottom: 25px;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 55px auto;
+            padding: 12px 28px;
+            border: 1px solid #c5a46d;
+            border-radius: 6px;
+            color: #c5a46d;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .reader {
+                padding: 22px;
+                margin: 30px auto;
+            }
+
+            .story-text {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }/* زخرفة عنوان الفصل */
+.reader h1 {
+    color: #e8c98b;
+    font-size: 38px;
+    text-align: center;
+    margin: 35px 0 55px;
+    text-shadow: 0 0 18px rgba(197, 157, 92, 0.2);
+}
+
+.reader h1::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 2px;
+    margin: 20px auto 0;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #c5a46d,
+        transparent
+    );
+}
+ /* فواصل فقرات الرواية */
+.story-text p + p::before {
+    content: "✦";
+    display: block;
+    text-align: center;
+    color: #c5a46d;
+    font-size: 16px;
+    margin: 24px auto;
+    opacity: 0.8;
+}
+
+.story-text p {
+    margin-bottom: 28px;
+    line-height: 2.2;
+} /* إطار عنوان الفصل */
+.chapter-number {
+    display: table;
+    margin: 35px auto 25px;
+    padding: 12px 35px;
+    color: #d9b879;
+    border-top: 1px solid #8f7047;
+    border-bottom: 1px solid #8f7047;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.chapter-number::after {
+    content: "✦";
+    display: block;
+    color: #c5a46d;
+    font-size: 13px;
+    margin-top: 8px;
+} 
+.chapter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    max-width: 850px;
+    margin: 45px auto 25px;
+    padding: 20px;
+    background: #190d22;
+    border: 1px solid #76502f;
+    border-radius: 12px;
+}
+
+.chapter-navigation a,
+.chapter-navigation button {
+    padding: 11px 18px;
+    border: 1px solid #c5a46d;
+    border-radius: 7px;
+    color: #e5c58b;
+    background: #281633;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.chapter-navigation .nav-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .chapter-navigation {
+        padding: 12px 8px;
+        gap: 6px;
+    }
+
+    .chapter-navigation a,
+    .chapter-navigation button {
+        padding: 9px 8px;
+        font-size: 12px;
+    }
+}
+ </style>
+</head>
+
+<body>
+
+<header class="reader-header">
+    <a href="../qaswara.html">العودة إلى الرواية</a>
+    <span>ما لم يمت</span>
+</header>
+
+<div class="reading-tools">
+    <button id="decrease-font">A-</button>
+    <span>حجم الخط</span>
+    <button id="increase-font">A+</button>
+    <button id="reset-font">إعادة الضبط</button>
+</div>
+
+<main class="reader">
+
+    <div class="chapter-number">الفصل الخامس (5)</div>
+
+    <h1>الرجل الذي عاد من الموت</h1>
+
+    <article class="story-text"> 
+<p>مرت الايام في القرية هادئة كما اعتاد اهلها ان تكون حياتهم، لا يقطع سكونها سوى صوت الفؤوس حين تهوي على جذوع الاشجار، واصوات الاطفال وهم يركضون بين البيوت، ورائحة الطعام التي كانت تنتشر مع اقتراب المساء فتملأ الطرقات بدفء لا يعرفه الا من عاش بعيدا عن صخب المدن والحروب</p>
+
+<p>كان قيس قد اعتاد حياته الجديدة حتى بدا للناظر اليه انه واحد من اهل القرية منذ سنوات طويلة. يستيقظ مع اول ضوء للفجر، يخرج الى الغابة، يقطع الاشجار ويحمل الحطب على كتفيه، ثم يعود مع انحدار الشمس نحو الافق</p>
+
+<p>اما قسورة فقد بدأ يكبر شيئا فشيئا، وصار اكثر حركة وفضولا. لم يعد ذلك الطفل الذي لا يعرف سوى النوم والبكاء، بل اصبح يركض بين البيوت ويلعب مع ابناء القرية، ثم يعود الى والده محملا بالاسئلة التي لا تنتهي</p>
+
+<p>وفي ذلك اليوم، عاد قيس من الغابة قبل غروب الشمس بقليل</p>
+
+<p>كان يحمل على كتفه حزمة كبيرة من الحطب، وقد غطى التعب وجهه، لكنه لم يكن يبدو منهكا كما ينبغي لرجل قضى يومه كاملا في قطع الاشجار. وضع الحطب امام بيت دارل، ثم رفع بصره نحو الطريق فرأى قسورة قادما من بعيد برفقة بعض اطفال القرية</p>
+
+<p>كان قسورة يضحك، ثم توقف حين رأى والده</p>
+
+<p>ركض نحوه</p>
+
+<p>قال قسورة بفرح</p>
+
+<p>«لقد عدت يا ابي»</p>
+
+<p>نظر اليه قيس ثم وضع يده على رأسه وقال</p>
+
+<p>«نعم لقد عدت»</p>
+
+<p>ظل قسورة يتحدث عن يومه وما فعله مع الاطفال، بينما كان قيس يستمع اليه بصمت. لم يكن رجلا يجيد التعبير عن مشاعره، ولم يكن يعرف كيف يجيب عن كل ما يدور في قلب طفل يكبر من دون ام</p>
+
+<p>لكنه كان يصغي</p>
+
+<p>وكان ذلك بالنسبة اليه كافيا</p>
+
+<p>ومع مرور الوقت بدأت الشمس تختفي خلف الجبال، وتحولت السماء الى لون احمر هادئ، وبدأ اهل القرية يعودون الى بيوتهم واحدا تلو الاخر</p>
+
+<p>خرجت النساء يحملن الطعام، ودخل الرجال بيوتهم، وبدأت رائحة الخبز واللحم تنتشر في ارجاء المكان</p>
+
+<p>ناداه دارل من امام منزله</p>
+
+<p>«قسورة سيأكل معنا الليلة»</p>
+
+<p>نظر قيس الى ابنه ثم قال</p>
+
+<p>«اذهب»</p>
+
+<p>ابتسم قسورة وركض نحو منزل دارل، فلحق به بعض اطفال الجيران، ودخلوا جميعا استعدادا للعشاء</p>
+
+<p>اما قيس فبقي خارجا</p>
+
+<p>جلس قرب منزله، واسند ظهره الى الجدار، وظل ينظر الى السماء دون ان يقول شيئا</p>
+
+<p>لم يكن يعرف كم مر من الوقت وهو يعيش هكذا</p>
+
+<p>ولا كم سيبقى</p>
+
+<p>لكنه للمرة الاولى منذ زمن طويل لم يكن يسمع صليل السيوف، ولا صرخات الجنود، ولا هدير الوحوش، ولا اصوات الممالك وهي تسقط واحدة بعد اخرى</p>
+
+<p>كان يسمع فقط اصوات اهل القرية وهم يغلقون ابوابهم</p>
+
+<p>ثم عم السكون شيئا فشيئا</p>
+
+<p>وفي تلك اللحظة</p>
+
+<p>ظهر رجل عند مدخل القرية</p>
+
+<p>كان غريبا عن المكان</p>
+
+<p>لم يكن يحمل راية مملكة، ولم يكن يرتدي لباسا عسكريا، وكان يسير بخطوات بطيئة كأن الطريق الذي قطعه كان اطول من ان يحتمل</p>
+
+<p>توقف لحظة ونظر حوله</p>
+
+<p>ثم تابع السير</p>
+
+<p>لم يلتفت اليه احد، فقد كان اهل القرية منشغلين بعشائهم، ولم يكن في مظهره ما يدعو الى الخوف</p>
+
+<p>حتى وصل الى وسط القرية</p>
+
+<p>وهناك رفع عينيه</p>
+
+<p>فرأى قيس</p>
+
+<p>توقف الرجل تماما</p>
+
+<p>بقي واقفا في مكانه، لا يتحرك ولا يتكلم</p>
+
+<p>حدق في وجه قيس وكأنه يرى شبحا خرج من قبره</p>
+
+<p>اما قيس فرفع عينيه نحوه</p>
+
+<p>تلاقت نظراتهما</p>
+
+<p>وفي اللحظة نفسها تغير وجه الرجل</p>
+
+<p>اتسعت عيناه، واضطرب تنفسه، وكأن سنوات كاملة من الالم قد عادت اليه دفعة واحدة</p>
+
+<p>همس بصوت يكاد لا يسمع</p>
+
+<p>«قيس...»</p>
+
+<p>لم يجب قيس</p>
+
+<p>ظل ينظر اليه بصمت</p>
+
+<p>اقترب الرجل خطوة</p>
+
+<p>ثم اخرى</p>
+
+<p>كان يبكي قبل ان يصل اليه</p>
+
+<p>وقف امامه للحظات، وكأنه يريد التأكد ان الرجل الذي امامه حقيقي وليس وهما صنعه التعب</p>
+
+<p>ثم مد يده ولمس كتف قيس</p>
+
+<p>ارتجفت يده</p>
+
+<p>وقال بصوت مكسور</p>
+
+<p>«انت حي...»</p>
+
+<p>ظل قيس صامتا</p>
+
+<p>وفجاة اندفع الرجل نحوه واحتضنه بقوة</p>
+
+<p>انحنى رأسه على كتف قيس، وانفجر بالبكاء كما لو انه كان يحمل هذا البكاء طوال سنوات ولم يجد من يبكي امامه</p>
+
+<p>تجمد قيس في مكانه</p>
+
+<p>لم يتوقع هذا اللقاء</p>
+
+<p>ولم يتوقع ان يرى وجها من الماضي في هذه القرية البعيدة</p>
+
+<p>رفع الرجل رأسه قليلا، وكانت دموعه تنهمر على وجهه</p>
+
+<p>ثم ضرب قيس على صدره بيده وهو يبكي وقال</p>
+
+<p>«سحقا لك يا قيس...»</p>
+
+<p>توقف لحظة عاجزا عن الكلام</p>
+
+<p>ثم عاد واحتضنه بقوة اكبر</p>
+
+<p>وقال بصوت مرتجف</p>
+
+<p>«عشنا اسوأ ايامنا ونحن نظن انك مت»</p>
+
+<p>ظل قيس ينظر اليه دون جواب</p>
+
+<p>اما الرجل فواصل البكاء وهو متمسك به، وكأنه يخشى ان يتركه للحظة فيختفي من امامه مرة اخرى</p>
+
+<p>وفي مكان قريب، كان صوت قسورة يصل من داخل منزل دارل، بينما بقي قيس والرجل الغريب وحدهما في الطريق المظلم</p>
+
+<p>ولم يكن قسورة يعلم ان تلك الليلة كانت بداية عودة الماضي الذي حاول والده دفنه طوال تلك السنوات.</p>
+    </article>
+
+<nav class="chapter-navigation">
+    <<a href="chapter-04.html">
+    الفصل السابق
+</a>
+
+    <a href="../qaswara.html">
+        فهرس الفصول
+    </a>
+
+    <a href="chapter-06.html">
+    الفصل التالي
+</a>
+</nav>
+
+    <a class="back-button" href="../qaswara.html">
+        العودة إلى عالم ما لم يمت
+    </a>
+
+</main>
+<script>
+const storyText = document.querySelector(".story-text");
+
+let fontSize = 18;
+
+document.getElementById("increase-font").onclick = function() {
+    fontSize += 2;
+    storyText.style.fontSize = fontSize + "px";
+};
+
+document.getElementById("decrease-font").onclick = function() {
+    if (fontSize > 12) {
+        fontSize -= 2;
+        storyText.style.fontSize = fontSize + "px";
+    }
+};
+
+document.getElementById("reset-font").onclick = function() {
+    fontSize = 18;
+    storyText.style.fontSize = fontSize + "px";
+};
+</script>
+</body>
+</html>
